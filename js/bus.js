@@ -40,6 +40,7 @@ class Bus {
     }
   }
   
-  let sptrans = new Bus("eli", "red", 6);
-  sptrans.move("right", 78);
+  export default Bus
+
+  
   
