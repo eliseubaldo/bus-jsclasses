@@ -1,12 +1,13 @@
 class Vehicle {
-    constructor(maxspeed = 200, seats = 5, wheels = 4) {
+    constructor(name, maxspeed = 200, seats = 5, wheels = 4) {
       this.maxspeed = maxspeed;
       this.seats = seats;
       this.wheels = wheels;
+      this.name = name;
     }
   
-    move(direction, amount, name) {
-      let el = document.getElementById(name);
+    move(direction, amount) {
+      let el = document.getElementById(this.name);
   
       switch (direction) {
         case "up":
@@ -26,7 +27,7 @@ class Vehicle {
           el.style.left = this.x + "px";
           break;
       }
-      console.log(`Moved ${name} ${direction}, to x:${this.x}, y:${this.y}`);
+      console.log(`Moved ${this.name} ${direction}, to x:${this.x}, y:${this.y}`);
     }
   }
   

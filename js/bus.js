@@ -2,11 +2,10 @@ import Vehicle from "./vehicle.js";
 
 class Bus extends Vehicle {
   constructor(name, color, x = 20, y = 20) {
-      super();
+      super(name);
       this.color = color;
       this.x = x;
       this.y = y;
-      this.name = name;
       this.initiateBus();
     }
   
@@ -15,31 +14,33 @@ class Bus extends Vehicle {
       let el = document.getElementById(this.name);
       el.innerHTML = this.name;
       el.style.backgroundColor = this.color;
+      el.style.left = this.x+"px";
+      el.style.top = this.y+"px";
     }
   
-    move(direction, amount) {
-      let el = document.getElementById(this.name);
+    // move(direction, amount) {
+    //   let el = document.getElementById(this.name);
   
-      switch (direction) {
-        case "up":
-          this.y -= amount;
-          el.style.top = this.y + "px";
-          break;
-        case "down":
-          this.y += amount;
-          el.style.top = this.y + "px";
-          break;
-        case "left":
-          this.x -= amount;
-          el.style.left = this.x + "px";
-          break;
-        case "right":
-          this.x += amount;
-          el.style.left = this.x + "px";
-          break;
-      }
-      console.log(`Moved ${direction}, to x:${this.x}, y:${this.y}`);
-    }
+    //   switch (direction) {
+    //     case "up":
+    //       this.y -= amount;
+    //       el.style.top = this.y + "px";
+    //       break;
+    //     case "down":
+    //       this.y += amount;
+    //       el.style.top = this.y + "px";
+    //       break;
+    //     case "left":
+    //       this.x -= amount;
+    //       el.style.left = this.x + "px";
+    //       break;
+    //     case "right":
+    //       this.x += amount;
+    //       el.style.left = this.x + "px";
+    //       break;
+    //   }
+    //   console.log(`Moved ${direction}, to x:${this.x}, y:${this.y}`);
+    // }
   }
   
   export default Bus
