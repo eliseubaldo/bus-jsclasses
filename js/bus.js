@@ -1,7 +1,9 @@
-class Bus {
-    constructor(name, color, seats, x = 20, y = 20) {
+import Vehicle from "./vehicle.js";
+
+class Bus extends Vehicle {
+  constructor(name, color, x = 20, y = 20) {
+      super();
       this.color = color;
-      this.seats = seats;
       this.x = x;
       this.y = y;
       this.name = name;
