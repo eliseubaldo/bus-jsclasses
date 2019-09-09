@@ -18,29 +18,6 @@ class Bus extends Vehicle {
       el.style.top = this.y+"px";
     }
   
-    // move(direction, amount) {
-    //   let el = document.getElementById(this.name);
-  
-    //   switch (direction) {
-    //     case "up":
-    //       this.y -= amount;
-    //       el.style.top = this.y + "px";
-    //       break;
-    //     case "down":
-    //       this.y += amount;
-    //       el.style.top = this.y + "px";
-    //       break;
-    //     case "left":
-    //       this.x -= amount;
-    //       el.style.left = this.x + "px";
-    //       break;
-    //     case "right":
-    //       this.x += amount;
-    //       el.style.left = this.x + "px";
-    //       break;
-    //   }
-    //   console.log(`Moved ${direction}, to x:${this.x}, y:${this.y}`);
-    // }
   }
   
   export default Bus
