@@ -1,9 +1,10 @@
 class Vehicle {
-    constructor(name, maxspeed = 200, seats = 5, wheels = 4) {
+    constructor(name, x = 20, y = 20, maxspeed = 200, wheels = 4 ) {
       this.maxspeed = maxspeed;
-      this.seats = seats;
       this.wheels = wheels;
       this.name = name;
+      this.x = x;
+      this.y = y;
     }
   
     move(direction, amount) {
