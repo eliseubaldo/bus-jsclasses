@@ -5,30 +5,21 @@ class Vehicle {
       this.name = name;
       this.x = x;
       this.y = y;
+      
+    }
+
+    createWheels() {
+      let el = document.getElementById(this.name);
+      for (let index = 0, w = 10; index < this.wheels; index++, w = w + 15) {
+        el.innerHTML += `<div class='wheel' style='left:${w+'px'}'></div>`;
+      }
     }
   
-    move(direction, amount) {
-      let el = document.getElementById(this.name);
+    move(name, x, y) {
+      let el = document.getElementById(name);
   
-      switch (direction) {
-        case "up":
-          this.y -= amount;
-          el.style.top = this.y + "px";
-          break;
-        case "down":
-          this.y += amount;
-          el.style.top = this.y + "px";
-          break;
-        case "left":
-          this.x -= amount;
-          el.style.left = this.x + "px";
-          break;
-        case "right":
-          this.x += amount;
-          el.style.left = this.x + "px";
-          break;
-      }
-      console.log(`Moved ${this.name} ${direction}, to x:${this.x}, y:${this.y}`);
+      setTimeout( function() { el.style.top = y + "px" }, 2000);
+      setTimeout( () => { el.style.left = x + "px" }, 1000);  
     }
   }
   

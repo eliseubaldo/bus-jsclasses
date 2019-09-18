@@ -1,11 +1,25 @@
 import Bus from './bus.js';
 
-let sptrans = new Bus("eli", "red", 50, 6, 10);
-  sptrans.move("right", 78);
+window.moveBus = function moveBus() {
+  let busname = document.getElementById('busname').value;
+  let x = Number(document.getElementById('xcoord').value);
+  let y = Number(document.getElementById('ycoord').value);
+  
+  const singleBus = busArray.find((i) => i.name === busname);
 
-let stm = new Bus("MTL", "pink",100,  250, 50);
-stm.move("down", 50);
+  if(singleBus) {
+    singleBus.move(singleBus.name, x, y);
+  }
 
-  console.log(sptrans);
-  console.log(stm);
+}
+
+
+  let busArray = [];
+  busArray.push(new Bus("eli", "red", 50, 6, 10));
+  busArray.push(new Bus("MTL", "green",100,  250, 50));
+  console.log(busArray);
+
+
+
+
   
