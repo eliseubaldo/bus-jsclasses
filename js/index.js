@@ -1,6 +1,7 @@
 import Bus from './bus.js';
 // add new "service" to load promise some passengers for the bus
 // random generate map with places to click
+
 window.moveBus = function moveBus() {
   let busname = document.getElementById('busname').value;
   let x = Number(document.getElementById('xcoord').value);
@@ -10,6 +11,7 @@ window.moveBus = function moveBus() {
 
   if(singleBus) {
     singleBus.move(singleBus.name, x, y);
+    
   }
 
 }

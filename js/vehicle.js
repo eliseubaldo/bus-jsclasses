@@ -1,11 +1,13 @@
+import { fetchUser } from './dataService.js';
+
 class Vehicle {
-    constructor(name, x = 20, y = 20, maxspeed = 200, wheels = 4 ) {
+    constructor(name, x = 20, y = 20, maxspeed = 200, wheels = 4, passengers = [] ) {
       this.maxspeed = maxspeed;
       this.wheels = wheels;
       this.name = name;
       this.x = x;
       this.y = y;
-      
+      this.passengers = passengers;
     }
 
     createWheels() {
@@ -18,8 +20,17 @@ class Vehicle {
     move(name, x, y) {
       let el = document.getElementById(name);
   
-      setTimeout( function() { el.style.top = y + "px" }, 2000);
-      setTimeout( () => { el.style.left = x + "px" }, 1000);  
+      setTimeout( () => { 
+          const randomId = Math.floor(Math.random()*10);
+          const user = fetchUser(randomId);
+          user.then((result) => this.passengers.push(result.name))
+      }, 2800);
+
+      setTimeout( () => { el.style.top = y + "px" }, 2000);
+      setTimeout( () => { el.style.left = x + "px" }, 1000);
+
+      
+      
     }
   }
   
