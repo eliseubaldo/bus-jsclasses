@@ -8,18 +8,21 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="controlpanel">
-        <input type="text" name="busname" id="busname" placeholder="enter bus name"/>
-        <input type="text" name="xcoord"  id="xcoord" placeholder="Enter x coord"/>
-        <input type="text" name="ycoord"  id="ycoord" placeholder="enter y coord"/>
-        <button onclick="LATM.moveBus()">Go!</button>
+    <div id="world">
+            <div class="controlpanel">
+                    <input type="text" name="busname" id="busname" placeholder="enter bus name"/>
+                    <input type="text" name="xcoord"  id="xcoord" placeholder="Enter x coord"/>
+                    <input type="text" name="ycoord"  id="ycoord" placeholder="enter y coord"/>
+                    <button id='goButton'>Go!</button>
+                </div>
+            
+                <div class="passengerModal" id="passengerModal">
+                    <h3>Passenger List</h3>
+                    <ul class="passengerList">
+                    </ul>
+                </div>
     </div>
-
-    <div class="passengerModal" id="passengerModal">
-        <h3>Passenger List</h3>
-        <ul class="passengerList">
-        </ul>
-    </div>
+    
 </body>
 <script type="module" src="js/index.js"></script>
 </html>
