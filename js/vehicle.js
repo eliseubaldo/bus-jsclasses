@@ -1,4 +1,3 @@
-import { fetchUser } from './dataService.js';
 import * as viewAnimUtils from './view-anim-utils.js';
 
 class Vehicle {
@@ -13,6 +12,10 @@ class Vehicle {
 
     createWheels() {
       viewAnimUtils.createWheels(this.name, this.wheels);
+    }
+
+    drawVehicle(vehicle, type) {
+      viewAnimUtils.drawVehicle(vehicle, type)
     }
   
     move(name, x, y) { //move and load, unload passenger

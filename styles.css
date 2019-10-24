@@ -9,20 +9,21 @@ body {
 }
 .bus {
     position: absolute;
-    width: 100px;
-    height: 50px;
+    width: 140px;
+    height: 38px;
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
     padding: 2px;
     transition: all 1s ease-out;
+    font-size: 10px;
   }
 .bus:after {
   content: '';
   position: absolute;
   right: -1px;
-  width: 30px;
-  height: 40px;
+  width: 20px;
+  height: 30px;
   background-color: white;
   border-radius: 4px;
   top: -1px;
@@ -51,17 +52,21 @@ body {
   left:0;
 }
 
-.passengerModal {
-  width: 400px;
-  position: absolute;
-  border: 2px solid seagreen;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: rgb(94, 175, 105);
-  display: none;
+.wheel:nth-child(n+5) {
+  margin-left: 35px;
 }
 
-.passengerModal h3 {
-  margin: 0 0 5px 0;
+.passengerModal {
+  box-sizing: border-box;
+  width: 200px;
+  overflow: hidden;
+  height: 0px;
+  position: absolute;
+  border-radius: 5px;
+  padding: 0px;
+  background-color: rgb(94, 175, 105);
+  display: block;
+  transition: all 1.5s ease-out;
   color: white;
+  font-size: 12px;
 }

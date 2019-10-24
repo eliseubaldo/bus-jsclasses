@@ -9,15 +9,9 @@ class Bus extends Vehicle {
     }
   
     initiateBus() {
-      document.body.innerHTML += `<div class='bus' id='${this.name}'></div>`;
-      let el = document.getElementById(this.name);
-      el.innerHTML = this.name;
-      el.style.backgroundColor = this.color;
-      el.style.left = this.x+"px";
-      el.style.top = this.y+"px";
+      super.drawVehicle(this, 'bus')
       super.createWheels();
-
-    }
+      }
   
   }
   
