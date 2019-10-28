@@ -21,6 +21,8 @@ class Vehicle {
     move(name, x, y) { //move and load, unload passenger
       viewAnimUtils.move(name,x,y, this)
     }
+
+    
   }
   
   export default Vehicle

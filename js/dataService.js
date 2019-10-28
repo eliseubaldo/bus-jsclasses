@@ -1,4 +1,5 @@
 const API_URL = "https://jsonplaceholder.typicode.com/users";
+import { randonNumber } from './utils.js';
 
 
 export function fetchUser(id) { 
@@ -15,6 +16,11 @@ export function fetchUser(id) {
         console.log(err)
     });
 } 
+
+export function fetchRandomPassenger () {
+    const randomId = randonNumber(10)+1;
+    return fetchUser(randomId);
+}
 
 
 

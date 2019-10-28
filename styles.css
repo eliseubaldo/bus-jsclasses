@@ -4,9 +4,36 @@ body {
 }
 
 #world {
-  height: 100vh;
-  width: 100vw;
+  border: 1px solid blue;
+  position: absolute;
+  width: calc(100vw - 1px);
+  height: calc(100vh - 1px);
+  box-sizing: border-box;
+  top:0;
+  left:0;
+  overflow: hidden;
 }
+
+#world .tile {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: grey;
+  font-size: 11px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid darkgray;
+}
+
+.passenger {
+  position: absolute;
+  box-sizing: border-box;
+  top:0;
+  left:0;
+  background-color: red;
+  height: 20px;
+}
+
 .bus {
     position: absolute;
     width: 140px;
@@ -30,16 +57,7 @@ body {
   border: 1px solid black;
 }
 
-.controlpanel {
-  padding: 5px;
-  position: absolute;
-  bottom:0;
-  right:0;
-  width: 150px;
-  height: 90px;
-  border: 2px solid aqua;
-  border-radius: 5px;
-}
+
 
 .wheel {
   position: absolute;

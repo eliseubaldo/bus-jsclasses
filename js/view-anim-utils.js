@@ -1,28 +1,11 @@
 import { fetchUser } from './dataService.js';
 import { randonNumber } from './utils.js';
 
-function getElement(name) {
-    return document.getElementById(name);
-}
 
-export function createWheels(name, wheels) {
-    let el = getElement(name);
-    for (let index = 0, w = 10; index < wheels; index++, w = w + 15) {
-      el.innerHTML += `<div class='wheel' style='left:${w+'px'}'></div>`;
-    }
-  }
-
-export function drawVehicle(vehicle, type) {
-  switch(type) {
-    case 'bus':
-      drawBus(vehicle)
-    break;
-    default:;
-  }
-}
 
 function drawBus(vehicle) {
-    document.body.innerHTML += `<div class='bus' id='${vehicle.name}'></div>`;
+    let world = getElement('world');
+    world.innerHTML += `<div class='bus' id='${vehicle.name}'></div>`;
     let el = getElement(vehicle.name);
     el.innerHTML = vehicle.name;
     el.style.backgroundColor = vehicle.color;
@@ -82,4 +65,51 @@ function fetchRandomPassenger () {
     const randomId = randonNumber(10)+1;
     const user = fetchUser(randomId);
     return user;
+}
+
+
+export function addTiletoView(element, size, row, col) {
+  element.innerHTML += 
+    `<div class='tile' id='r${row}-c${col}'
+    style='width:${size+'px'}; 
+            height:${size+'px'};
+            left:${size*col+'px'};
+            top:${size*row+'px'}'>
+    ${row}/${col}
+    </div>`;
+} 
+
+export function getElement(name) {
+  return document.getElementById(name);
+}
+
+export function createWheels(name, wheels) {
+  let el = getElement(name);
+  for (let index = 0, w = 10; index < wheels; index++, w = w + 15) {
+    el.innerHTML += `<div class='wheel' style='left:${w+'px'}'></div>`;
+  }
+}
+
+export function drawVehicle(vehicle, type) {
+  switch(type) {
+    case 'bus':
+      drawBus(vehicle)
+    break;
+    default:;
+  }
+}
+
+export function drawPassenger(passenger, tile) {
+  getElement(tile.id).innerHTML += `<div class='passenger' id='${passenger.name}'></div>`;
+  getElement(passenger.name).style.width = (tile.size * 0.2) + '%';
+  getElement(passenger.name).style.top = '10%';
+  getElement(passenger.name).style.left = '10%';
+ 
+}
+
+export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight) {
+  element.style.width = width + 'px';
+  element.style.height = height + 'px';
+  element.style.left = (docWidth - width) / 2 + "px";
+  element.style.top = (docHeight - height) / 2 + "px";
 }
