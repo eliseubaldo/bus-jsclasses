@@ -1,18 +1,6 @@
 import { fetchUser } from './dataService.js';
 import { randonNumber } from './utils.js';
 
-
-
-function drawBus(vehicle) {
-    let world = getElement('world');
-    world.innerHTML += `<div class='bus' id='${vehicle.name}'></div>`;
-    let el = getElement(vehicle.name);
-    el.innerHTML = vehicle.name;
-    el.style.backgroundColor = vehicle.color;
-    el.style.left = vehicle.x+"px";
-    el.style.top = vehicle.y+"px";
-}
-
 export function move(name, x, y, vehicle) {
     let el = getElement(name);
     console.log('class:',vehicle)
@@ -90,21 +78,30 @@ export function createWheels(name, wheels) {
   }
 }
 
-export function drawVehicle(vehicle, type) {
+export function drawVehicle(vehicle, type, tile) {
   switch(type) {
     case 'bus':
-      drawBus(vehicle)
+      drawBus(vehicle, tile)
     break;
     default:;
   }
 }
 
+function drawBus(vehicle, tile) {
+  console.log('bust:',tile);
+  let world = getElement('world');
+  world.innerHTML += `<div class='bus' id='${vehicle.name}'><img src='../images/icons8-bus-100.png'></div>`;
+  getElement(vehicle.name).style.top = tile.center.y +'px';
+  getElement(vehicle.name).style.left = tile.center.x +'px';
+
+}
+
+
 export function drawPassenger(passenger, tile) {
-  getElement(tile.id).innerHTML += `<div class='passenger' id='${passenger.name}'></div>`;
+  getElement(tile.id).innerHTML += `<div class='passenger' id='${passenger.name}'><img src='../images/Aiga_toiletsq_men.svg'></div>`;
   getElement(passenger.name).style.width = (tile.size * 0.2) + '%';
   getElement(passenger.name).style.top = '10%';
   getElement(passenger.name).style.left = '10%';
- 
 }
 
 export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight) {

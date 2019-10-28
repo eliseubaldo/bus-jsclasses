@@ -30,34 +30,16 @@ body {
   box-sizing: border-box;
   top:0;
   left:0;
-  background-color: red;
   height: 20px;
+}
+.passenger img {
+  width: 100%;
 }
 
 .bus {
     position: absolute;
-    width: 140px;
-    height: 38px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 2px;
     transition: all 1s ease-out;
-    font-size: 10px;
   }
-.bus:after {
-  content: '';
-  position: absolute;
-  right: -1px;
-  width: 20px;
-  height: 30px;
-  background-color: white;
-  border-radius: 4px;
-  top: -1px;
-  border: 1px solid black;
-}
-
-
 
 .wheel {
   position: absolute;

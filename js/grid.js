@@ -20,11 +20,11 @@ class Grid {
 
     initiate(vehicles, passengers) {
       for (let v = 0; v < vehicles; v++) {
-        this.addVehicle();
+        this.addVehicle(v);
       }
 
       for (let p = 0; p < passengers; p++) {
-        this.addPassenger();
+        this.addPassenger(p);
       }
 
        
@@ -66,22 +66,23 @@ class Grid {
         return arr;
       }
 
-      addVehicle() {
+      addVehicle(index) {
         const rndTile = pickRndTile(this.tilesGrid);
         let tile = this.tilesGrid[rndTile.row][rndTile.col];
         if(!tile.bus){
-            tile.bus = new Bus(3, tile.center.x, tile.center.y);
+          console.log('gridBt:',tile);
+            tile.bus = new Bus(3, tile, index);
         }
       }
 
-      addPassenger() {
+      addPassenger(index) {
         const rndTile = pickRndTile(this.tilesGrid);
         let tile = this.tilesGrid[rndTile.row][rndTile.col];
         console.log(rndTile);
         if(tile.passengers.length === 0){
           let passenger = fetchRandomPassenger();
           passenger.then((passenger) => {
-            tile.passengers.push(new Passenger(passenger.name, tile))
+            tile.passengers.push(new Passenger(passenger.name+index, tile))
           })
         }
       }

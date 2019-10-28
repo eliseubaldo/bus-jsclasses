@@ -14,8 +14,8 @@ class Vehicle {
       viewAnimUtils.createWheels(this.name, this.wheels);
     }
 
-    drawVehicle(vehicle, type) {
-      viewAnimUtils.drawVehicle(vehicle, type)
+    drawVehicle(vehicle, type, tile) {
+      viewAnimUtils.drawVehicle(vehicle, type, tile)
     }
   
     move(name, x, y) { //move and load, unload passenger
