@@ -4,8 +4,11 @@ import Grid from './grid.js';
 // random generate map with places to click
 
 const worldclass = getElement('world');
+const nVehicles = 2;
+const nPassengers = 5;
+const nCities = 4;
 
-let grid = new Grid(worldclass, 90, 2, 5);
+let grid = new Grid(worldclass, 90, nVehicles, nPassengers, nCities);
 
 console.log('grid:', grid);
 

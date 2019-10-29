@@ -90,7 +90,7 @@ export function drawVehicle(vehicle, type, tile) {
 function drawBus(vehicle, tile) {
   console.log('bust:',tile);
   let world = getElement('world');
-  world.innerHTML += `<div class='bus' id='${vehicle.name}'><img src='../images/icons8-bus-100.png'></div>`;
+  world.innerHTML += `<div class='bus' id='${vehicle.name}'><div class='bus-sign'>vehicle.city</div><img src='../images/icons8-bus-100.png'></div>`;
   getElement(vehicle.name).style.top = tile.center.y +'px';
   getElement(vehicle.name).style.left = tile.center.x +'px';
 
