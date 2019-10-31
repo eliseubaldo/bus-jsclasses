@@ -6,7 +6,7 @@ class Bus extends Vehicle {
       super(name = generateVehicleName()+index, tile.x, tile.y, '180', 6);
       this.color = generateColorName();
       this.seats = seats;
-      this.destination = destination;
+      this.destination = destination.name;
       super.drawVehicle(this, 'bus', tile)
     }
   

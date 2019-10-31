@@ -1,4 +1,4 @@
-import { pickRndTile } from './utils.js';
+import { pickRndTile, updatedGridCity, getUnpickedCity, getRndDestination} from './utils.js';
 import Bus from './bus.js';
 import { addTiletoView, adjustViewWorldBoundaries } from './view-anim-utils.js';
 import Passenger from './passenger.js';
@@ -21,15 +21,17 @@ class Grid {
     }
 
     initiate(vehicles, passengers, cities) {
+
+      // if gridBase rows x cols < nCities,
       for (let c = 0; c < cities; c++) {
         this.generateCities();
       }
-
-
+      
+      
       for (let v = 0; v < vehicles; v++) {
         this.addVehicleToGrid(v);
       }
-
+      console.log('Cities before:',this.cities);
       for (let p = 0; p < passengers; p++) {
         this.addPassengerToGrid(p);
       }
@@ -76,10 +78,12 @@ class Grid {
       generateCities() {
         const rndTile = pickRndTile(this.tilesGrid);
         let tile = this.tilesGrid[rndTile.row][rndTile.col];
-        console.log('cityTile:',rndTile);
-
-        if(!tile.city && !tile.bus){
-          tile.city = new City(this.getCityName(), tile);
+        
+        if(!tile.city){
+          const rndCity = this.getCityName();
+          const newCity = new City(rndCity, tile, false);
+          tile.city = newCity;
+          this.cities.push(newCity);
         } else {
           this.generateCities();
         }
@@ -87,42 +91,41 @@ class Grid {
       }
 
       getCityName() {
-        const city = fetchRandomCityName();
-        const found = this.cities.find((item) => item === city);
-        if (!found) {
-          console.log('obj city', city);
-          console.log('obj found', found);
-          this.cities.push(city);
-          console.log('city:',city);
-          return city;
-        } else {
-          this.getCityName();
+        let city = fetchRandomCityName();
+        let found = this.cities.find((item) => item.name === city.name);
+        if (found) {
+          return this.getCityName();
         }
+        return city;
       }
 
       addVehicleToGrid(index) {
         const rndTile = pickRndTile(this.tilesGrid);
         let tile = this.tilesGrid[rndTile.row][rndTile.col];
-        if(!tile.bus){
-          console.log('gridBt:',tile);
-            tile.bus = new Bus(3, tile, index);
+        if(!tile.bus && !tile.city){
+          const rndCity = getUnpickedCity(this.cities);
+          this.cities = updatedGridCity(this.cities, rndCity);
+          tile.bus = new Bus(3, tile, index, rndCity);
         } else {
           this.addVehicleToGrid(index);
         }
       }
 
       addPassengerToGrid(index) {
-        const rndTile = pickRndTile(this.tilesGrid);
-        let tile = this.tilesGrid[rndTile.row][rndTile.col];
-        console.log(rndTile);
-        if(tile.passengers.length === 0 && !tile.bus){
-          let passenger = fetchRandomPassenger();
-          passenger.then((passenger) => {
-            tile.passengers.push(new Passenger(passenger.name+index, tile))
-          })
-        } else {
-          this.addPassengerToGrid(index);
-        }
+        let passenger = fetchRandomPassenger();
+        passenger.then((passenger) => {
+          const rndTile = pickRndTile(this.tilesGrid);
+          let tile = this.tilesGrid[rndTile.row][rndTile.col];
+          if(tile.passengers.length === 0 && !tile.bus){
+            tile.passengers.push(new Passenger(passenger.name+index, tile, getRndDestination(this.cities)))
+          } else {
+            this.addPassengerToGrid(index)
+          }
+        })
+      }
+
+      moveBus(event) {
+        console.log(event)
       }
 
       

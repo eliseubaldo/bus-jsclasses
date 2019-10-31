@@ -88,20 +88,59 @@ export function drawVehicle(vehicle, type, tile) {
 }
 
 function drawBus(vehicle, tile) {
-  console.log('bust:',tile);
   let world = getElement('world');
-  world.innerHTML += `<div class='bus' id='${vehicle.name}'><div class='bus-sign'>vehicle.city</div><img src='../images/icons8-bus-100.png'></div>`;
+  world.innerHTML += `<div class='bus' id='${vehicle.name}'>
+  <div class='bus-sign'>${vehicle.destination}</div>
+  <img src='../images/icons8-bus-100.png'></div>`;
   getElement(vehicle.name).style.top = tile.center.y +'px';
   getElement(vehicle.name).style.left = tile.center.x +'px';
+}
+
+document.addEventListener('click', function (event) {
+
+	if (event.target.matches('.bus')) {
+		console.log('ele:', event.target);
+	}
+
+	if (event.target.matches('.close')) {
+		// Run your code to close a modal
+	}
+
+}, false);
+
+
+export function drawCity(city, tile) {
+  let world = getElement('world');
+  world.innerHTML += `<div class='city' id='${city.name}'><img src='../images/city-svgrepo-com.svg' class='city-img'><div class='city-sign'>${city.name}</div></div>`;
+  getElement(city.name).style.width = tile.width /2 +'px';
+  getElement(city.name).style.height = tile.height /2 +'px';
+  getElement(city.name).style.top = tile.center.y +'px';
+  getElement(city.name).style.left = tile.x +'px';
 
 }
 
 
-export function drawPassenger(passenger, tile) {
-  getElement(tile.id).innerHTML += `<div class='passenger' id='${passenger.name}'><img src='../images/Aiga_toiletsq_men.svg'></div>`;
-  getElement(passenger.name).style.width = (tile.size * 0.2) + '%';
-  getElement(passenger.name).style.top = '10%';
-  getElement(passenger.name).style.left = '10%';
+export function drawPassenger(passenger, tile, destination) {
+  let world = getElement('world');
+  console.log(tile);
+  world.innerHTML += `<div class='passenger' id='${passenger.name}'>
+  <img src='../images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
+  <div class='passenger-destination'>${destination.name}</div>
+  </div>`;
+  let passengerEl = getElement(passenger.name);
+  passengerEl.style.width = tile.size + 'px';
+  passengerEl.style.top = tile.y  + 'px';
+  passengerEl.style.left = tile.x + 'px';
+
+  let passengerIcon = getElement(passenger.name).querySelector(`img[name='${passenger.name}']`);
+  
+  passengerIcon.style.width = tile.size * 0.2 + 'px';
+  passengerIcon.style.top = tile.y + 2 + 'px';
+  passengerIcon.style.left = tile.x + 2 + 'px';
+
+  let passengerDestination = getElement(passenger.name).querySelector(`div[class='passenger-destination']`);
+  passengerDestination.style.width = tile.size * 0.90 + 'px';
+
 }
 
 export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight) {

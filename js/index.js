@@ -1,15 +1,29 @@
 import { getElement } from './view-anim-utils.js'
 import Grid from './grid.js';
-// add new "service" to load promise some passengers for the bus
-// random generate map with places to click
 
 const worldclass = getElement('world');
-const nVehicles = 2;
+const nVehicles = 3;
 const nPassengers = 5;
-const nCities = 4;
+const nCities = 8;
 
-let grid = new Grid(worldclass, 90, nVehicles, nPassengers, nCities);
+let grid = new Grid(worldclass, 120, nVehicles, nPassengers, nCities);
 
 console.log('grid:', grid);
 
-// document.getElementById('goButton').addEventListener('click', moveBus);
+// document.getElementById('world').addEventListener('click', event => {
+//     event.preventDefault();
+//     console.log('ji')
+// });
+
+
+
+// let x = document.getElementsByClassName('bus');//.addEventListener('click', grid.moveBus(event));
+// console.log(x)
+// for (let key in x) {
+//     console.log(x[key]);
+//     //x[key].addEventListener('click', grid.moveBus(event));
+// }
+
+// (element => {
+//     
+// });

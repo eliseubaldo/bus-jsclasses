@@ -16,6 +16,21 @@ export function pickRndTile(grid) {
   };
 }
 
+export function updatedGridCity(array, city) {
+  const index = array.findIndex((item) => item.name === city.name);
+  array[index].isPicked = true;
+  return array;
+}
+
+export function getUnpickedCity(array) {
+  const rndCity = array.find((city) => city.isPicked === false);
+  return rndCity;
+}
+
+export function getRndDestination(array) {
+  const rndDestination = pickRndFromArray(array);
+  return rndDestination.isPicked === true ? rndDestination : getRndDestination(array);
+}
 
 export function generateVehicleName() {
   const surnames = ['silver', 'wing', 'wolf', 'grey', 'master', 'hound', 'beagle', 'bird', 'eagle', 'smart', 'speed'];

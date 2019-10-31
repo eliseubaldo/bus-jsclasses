@@ -56,10 +56,6 @@ let cities = [
 		country: "Russia"
 	},
 	{
-		name: "Guangzhou",
-		country: "China"
-	},
-	{
 		name: "Mumbai",
 		country: "India"
 	},
@@ -164,10 +160,6 @@ let cities = [
 		country: "Russia"
 	},
 	{
-		name: "Dar es Salaam",
-		country: "Tanzania"
-	},
-	{
 		name: "Yangon",
 		country: "Myanmar"
 	},
@@ -226,10 +218,6 @@ let cities = [
 	{
 		name: "Kabul",
 		country: "Afghanistan"
-	},
-	{
-		name: "Casablanca",
-		country: "Morocco"
 	},
 	{
 		name: "Pyongyang",
