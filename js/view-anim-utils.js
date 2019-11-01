@@ -1,59 +1,49 @@
-import { fetchUser } from './dataService.js';
 import { randonNumber } from './utils.js';
 
-export function move(name, x, y, vehicle) {
-    let el = getElement(name);
-    console.log('class:',vehicle)
-
+export function moveVehicle(vehicle, targetTile) {
+  console.log('move tile:',vehicle);
     setTimeout( () => {
-        vehicle.x = x;
-        vehicle.y = y; 
-        boardUnboardPassenger(vehicle);
+        
+        //boardUnboardPassenger(vehicle);
     }, 2800);
 
-    setTimeout( () => { el.style.top = y + "px" }, 2000);
-    setTimeout( () => { el.style.left = x + "px" }, 1000);
+    setTimeout( () => { vehicle.style.top = targetTile.center.y + "px" }, 2000);
+    setTimeout( () => { vehicle.style.left = targetTile.center.x + "px" }, 1000);
   }
 
-function boardUnboardPassenger(vehicle) {
-  const board = randonNumber(2); 
+// function boardUnboardPassenger(vehicle) {
+//   const board = randonNumber(2); 
   
-  if (board === 1 && vehicle.seats > vehicle.passengers.length) {
-      let passenger = fetchRandomPassenger();
-      passenger.then((passenger) => {
-        vehicle.passengers.push(passenger.name);
-        showBoardingUnboardingPanel(passenger.name, vehicle, 'board')
-      });
-  } else if (board === 0 && vehicle.passengers.length > 0){
-      showBoardingUnboardingPanel(vehicle.passengers.shift(), vehicle);
-  }
- }
+//   if (board === 1 && vehicle.seats > vehicle.passengers.length) {
+//       let passenger = fetchRandomPassenger();
+//       passenger.then((passenger) => {
+//         vehicle.passengers.push(passenger.name);
+//         showBoardingUnboardingPanel(passenger.name, vehicle, 'board')
+//       });
+//   } else if (board === 0 && vehicle.passengers.length > 0){
+//       showBoardingUnboardingPanel(vehicle.passengers.shift(), vehicle);
+//   }
+//  }
 
-function showBoardingUnboardingPanel(passenger, vehicle, action) {
-    let message;
-    if (action === 'board') {
-      message = `Now boarding: ${passenger}`;
-    } else {
-      message = `Now unboarding: ${passenger}`;
-    }
+// function showBoardingUnboardingPanel(passenger, vehicle, action) {
+//     let message;
+//     if (action === 'board') {
+//       message = `Now boarding: ${passenger}`;
+//     } else {
+//       message = `Now unboarding: ${passenger}`;
+//     }
 
-    let el = getElement("passengerModal");
-    el.style.display = 'block';
-    el.style.height = '36px';
-    el.style.padding = '6px';
-    el.style.top = vehicle.y - 50 + 'px';
-    el.style.left = vehicle.x + 'px';
-    el.innerHTML = message;
+//     let el = getElement("passengerModal");
+//     el.style.display = 'block';
+//     el.style.height = '36px';
+//     el.style.padding = '6px';
+//     el.style.top = vehicle.y - 50 + 'px';
+//     el.style.left = vehicle.x + 'px';
+//     el.innerHTML = message;
     
-    setTimeout( () => { el.style.height = '0'; el.style.padding = 0; }, 3000);
+//     setTimeout( () => { el.style.height = '0'; el.style.padding = 0; }, 3000);
  
-}
-
-function fetchRandomPassenger () {
-    const randomId = randonNumber(10)+1;
-    const user = fetchUser(randomId);
-    return user;
-}
+// }
 
 
 export function addTiletoView(element, size, row, col) {
@@ -62,7 +52,8 @@ export function addTiletoView(element, size, row, col) {
     style='width:${size+'px'}; 
             height:${size+'px'};
             left:${size*col+'px'};
-            top:${size*row+'px'}'>
+            top:${size*row+'px'}'
+            data-row='${row}' data-col='${col}'>
     ${row}/${col}
     </div>`;
 } 
@@ -89,25 +80,14 @@ export function drawVehicle(vehicle, type, tile) {
 
 function drawBus(vehicle, tile) {
   let world = getElement('world');
-  world.innerHTML += `<div class='bus' id='${vehicle.name}'>
+  world.innerHTML += `<div class='bus' id='${vehicle.name}' data-row='${tile.row}' data-col='${tile.col}'>
   <div class='bus-sign'>${vehicle.destination}</div>
-  <img src='../images/icons8-bus-100.png'></div>`;
+  `;
   getElement(vehicle.name).style.top = tile.center.y +'px';
   getElement(vehicle.name).style.left = tile.center.x +'px';
+  getElement(vehicle.name).style.width = tile.width /2 +'px';
+  getElement(vehicle.name).style.height = tile.height /2 +'px';
 }
-
-document.addEventListener('click', function (event) {
-
-	if (event.target.matches('.bus')) {
-		console.log('ele:', event.target);
-	}
-
-	if (event.target.matches('.close')) {
-		// Run your code to close a modal
-	}
-
-}, false);
-
 
 export function drawCity(city, tile) {
   let world = getElement('world');
@@ -116,13 +96,10 @@ export function drawCity(city, tile) {
   getElement(city.name).style.height = tile.height /2 +'px';
   getElement(city.name).style.top = tile.center.y +'px';
   getElement(city.name).style.left = tile.x +'px';
-
 }
-
 
 export function drawPassenger(passenger, tile, destination) {
   let world = getElement('world');
-  console.log(tile);
   world.innerHTML += `<div class='passenger' id='${passenger.name}'>
   <img src='../images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
   <div class='passenger-destination'>${destination.name}</div>

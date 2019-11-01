@@ -1,14 +1,8 @@
-import { getElement } from './view-anim-utils.js'
-import Grid from './grid.js';
+import Control from './control.js';
 
-const worldclass = getElement('world');
-const nVehicles = 3;
-const nPassengers = 5;
-const nCities = 8;
+const control = new Control();
 
-let grid = new Grid(worldclass, 120, nVehicles, nPassengers, nCities);
-
-console.log('grid:', grid);
+console.log('contro', control);
 
 // document.getElementById('world').addEventListener('click', event => {
 //     event.preventDefault();

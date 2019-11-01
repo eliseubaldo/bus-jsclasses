@@ -27,7 +27,6 @@ class Grid {
         this.generateCities();
       }
       
-      
       for (let v = 0; v < vehicles; v++) {
         this.addVehicleToGrid(v);
       }
@@ -35,7 +34,6 @@ class Grid {
       for (let p = 0; p < passengers; p++) {
         this.addPassengerToGrid(p);
       }
-
        
     }
 
@@ -58,6 +56,8 @@ class Grid {
               }
               arr[r].push({
                  id:`r${r}-c${c}`,
+                 row: r,
+                 col: c,
                  width:this.tileSize,
                  height:this.tileSize,
                  x: this.tileSize*c,
@@ -123,13 +123,6 @@ class Grid {
           }
         })
       }
-
-      moveBus(event) {
-        console.log(event)
-      }
-
-      
-   
 
 }
 
