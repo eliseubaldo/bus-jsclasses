@@ -1,6 +1,6 @@
 import { pickRndTile, updatedGridCity, getUnpickedCity, getRndDestination} from './utils.js';
 import Bus from './bus.js';
-import { addTiletoView, adjustViewWorldBoundaries } from './view-anim-utils.js';
+import { addTiletoView, adjustViewWorldBoundaries, getElement, addHeaderPanel } from './view-anim-utils.js';
 import Passenger from './passenger.js';
 import { fetchRandomPassenger, fetchRandomCityName } from './dataService.js';
 import City from './city.js';
@@ -8,14 +8,19 @@ import City from './city.js';
 class Grid {
     constructor(element, tilesize, vehicles, passengers, cities) {
         this.element = element;
+        const header = getElement('panel');
         this.docWidth = this.element.clientWidth;
         this.docHeight = this.element.clientHeight;
         this.tileSize = tilesize;
-        this.gridBase = this.calculateGrid(this.docWidth, this.docHeight, this.tileSize);
+        const headerWidth = 200;
+        const headerHeight = 50;
+        addHeaderPanel(header, this.docWidth, headerWidth, headerHeight);
+        this.gridBase = this.calculateGrid(this.docWidth, this.docHeight, this.tileSize, headerHeight);
         this.tilesGrid = this.generateGrid(this.gridBase.rows, this.gridBase.cols, this.element);
-        this.width = this.gridBase.cols*this.tileSize;
-        this.height = this.gridBase.rows*this.tileSize;
-        adjustViewWorldBoundaries(element, this.width, this.height, this.docWidth, this.docHeight);
+        const width = this.gridBase.cols*this.tileSize;
+        const height = this.gridBase.rows*this.tileSize;
+
+        adjustViewWorldBoundaries(element, width, height, this.docWidth, this.docHeight, headerHeight);
         this.cities = [];
         this.initiate(vehicles, passengers, cities);
     }
@@ -37,8 +42,8 @@ class Grid {
        
     }
 
-    calculateGrid(width, height, tileSize) {
-        const rows = Math.floor(height / tileSize);
+    calculateGrid(width, height, tileSize, headerHeight) {
+        const rows = Math.floor((height-headerHeight) / tileSize);
         const cols = Math.floor(width / tileSize);
         return { rows: rows, cols: cols };
     }
@@ -117,7 +122,8 @@ class Grid {
           const rndTile = pickRndTile(this.tilesGrid);
           let tile = this.tilesGrid[rndTile.row][rndTile.col];
           if(tile.passengers.length === 0 && !tile.bus){
-            tile.passengers.push(new Passenger(passenger.name+index, tile, getRndDestination(this.cities)))
+            const exceptionCity = tile.hasOwnProperty('city') ? tile.city.name:'';
+            tile.passengers.push(new Passenger(passenger.name+index, tile, getRndDestination(this.cities, exceptionCity)))
           } else {
             this.addPassengerToGrid(index)
           }

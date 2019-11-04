@@ -1,14 +1,19 @@
-import { randonNumber } from './utils.js';
+import { randonNumber, getElementRowCol } from './utils.js';
 
-export function moveVehicle(vehicle, targetTile) {
-  console.log('move tile:',vehicle);
+export function moveVehicle(vehicle, gridTargetTile, pastTile) {
+  
+  vehicle.setAttribute('data-row',gridTargetTile.row);
+  vehicle.setAttribute('data-col',gridTargetTile.col);
+  console.log('dpois:',vehicle)
+  setTimeout( () => { vehicle.style.left = gridTargetTile.center.x + "px" }, 1000);
+  setTimeout( () => { vehicle.style.top = gridTargetTile.center.y + "px" }, 2000);
+  return new Promise((r,j) => { 
     setTimeout( () => {
-        
+        r(pastTile);
         //boardUnboardPassenger(vehicle);
-    }, 2800);
+    }, 3000)
+  });
 
-    setTimeout( () => { vehicle.style.top = targetTile.center.y + "px" }, 2000);
-    setTimeout( () => { vehicle.style.left = targetTile.center.x + "px" }, 1000);
   }
 
 // function boardUnboardPassenger(vehicle) {
@@ -62,12 +67,6 @@ export function getElement(name) {
   return document.getElementById(name);
 }
 
-export function createWheels(name, wheels) {
-  let el = getElement(name);
-  for (let index = 0, w = 10; index < wheels; index++, w = w + 15) {
-    el.innerHTML += `<div class='wheel' style='left:${w+'px'}'></div>`;
-  }
-}
 
 export function drawVehicle(vehicle, type, tile) {
   switch(type) {
@@ -85,24 +84,24 @@ function drawBus(vehicle, tile) {
   `;
   getElement(vehicle.name).style.top = tile.center.y +'px';
   getElement(vehicle.name).style.left = tile.center.x +'px';
-  getElement(vehicle.name).style.width = tile.width /2 +'px';
+  getElement(vehicle.name).style.minWidth = tile.width /2 +'px';
   getElement(vehicle.name).style.height = tile.height /2 +'px';
 }
 
 export function drawCity(city, tile) {
-  let world = getElement('world');
-  world.innerHTML += `<div class='city' id='${city.name}'><img src='../images/city-svgrepo-com.svg' class='city-img'><div class='city-sign'>${city.name}</div></div>`;
+  let world = getElement(tile.id);
+  world.innerHTML += `<div class='city' id='${city.name}'><div class='city-sign' data-tile='${tile.id}'>${city.name}</div></div>`;
   getElement(city.name).style.width = tile.width /2 +'px';
   getElement(city.name).style.height = tile.height /2 +'px';
-  getElement(city.name).style.top = tile.center.y +'px';
-  getElement(city.name).style.left = tile.x +'px';
+  getElement(city.name).style.top = tile.height /2 +'px';
+  getElement(city.name).style.left = tile.width - tile.size +'px';
 }
 
 export function drawPassenger(passenger, tile, destination) {
   let world = getElement('world');
-  world.innerHTML += `<div class='passenger' id='${passenger.name}'>
+  world.innerHTML += `<div class='passenger' id='${passenger.name}' data-tile='${tile.id}'>
   <img src='../images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
-  <div class='passenger-destination'>${destination.name}</div>
+  <div class='passenger-destination' data-tile='${tile.id}'>${destination.name}</div>
   </div>`;
   let passengerEl = getElement(passenger.name);
   passengerEl.style.width = tile.size + 'px';
@@ -120,9 +119,22 @@ export function drawPassenger(passenger, tile, destination) {
 
 }
 
-export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight) {
+export function removePassenger(id) {
+  let el = getElement(id);
+  el.remove();
+
+}
+
+export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight, headerHeight) {
   element.style.width = width + 'px';
-  element.style.height = height + 'px';
+  element.style.height = height  + 'px';
   element.style.left = (docWidth - width) / 2 + "px";
-  element.style.top = (docHeight - height) / 2 + "px";
+  element.style.top = headerHeight + "px";
+  
+  
+}
+
+export function addHeaderPanel(element, docWidth, elementWidth, elementHeight) {
+  element.style.left = docWidth/2 - elementWidth/2 + "px";
+  element.style.height = elementHeight + "px";
 }

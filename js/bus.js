@@ -9,6 +9,14 @@ class Bus extends Vehicle {
       this.destination = destination.name;
       super.drawVehicle(this, 'bus', tile)
     }
+
+    isFull() {
+      return this.passengers.length === this.seats;
+    }
+
+    hasPassengers() {
+      return this.passengers.length > 0
+    }
   
   
   }

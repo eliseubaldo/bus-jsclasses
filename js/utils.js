@@ -27,9 +27,9 @@ export function getUnpickedCity(array) {
   return rndCity;
 }
 
-export function getRndDestination(array) {
+export function getRndDestination(array, exception = '') {
   const rndDestination = pickRndFromArray(array);
-  return rndDestination.isPicked === true ? rndDestination : getRndDestination(array);
+  return rndDestination.isPicked === true && rndDestination.name != exception ? rndDestination : getRndDestination(array, exception);
 }
 
 export function generateVehicleName() {
@@ -43,7 +43,7 @@ export function generateColorName() {
   return pickRndFromArray(colorNames);
 }
 
-export function getTileRowCol(target) {
+export function getElementRowCol(target) {
   const row = target.getAttribute('data-row');
   const col = target.getAttribute('data-col');
   return {row:row, col:col}

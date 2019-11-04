@@ -1,10 +1,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0; margin: 0;
+  background: green;
 }
 
 #world {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   position: absolute;
   width: calc(100vw - 1px);
   height: calc(100vh - 1px);
@@ -18,11 +19,11 @@ body {
   width: 50px;
   height: 50px;
   position: absolute;
-  background-color: rgb(218, 200, 167);
+  background-color: rgb(100, 173, 66);
   font-size: 11px;
   text-align: center;
   box-sizing: border-box;
-  border: 1px solid darkgray;
+  
 }
 
 .passenger {
@@ -32,6 +33,7 @@ body {
   left:0;
   height: 20px;
   padding:2px;
+  height: auto;
 }
 .passenger img {
   width: 100%;
@@ -45,14 +47,14 @@ body {
   color: white;
   padding: 1px;
   display: inline-block;
+  text-align: center;
 }
 
 .passenger-destination:before {
   content: '';
-  position: relative;
+  position: absolute;
   bottom: 17px;
-  left: 15px;
-  margin-left: -8px;
+  left: 11px;
   width: 0; height: 0;
   border-bottom: 4px solid #000000;
   border-right: 4px solid transparent;
@@ -64,26 +66,31 @@ body {
     transition: all 1s ease-out;
     z-index:222;
     background-image: url(images/icons8-bus-100.png);
-    /* width: 36px;
-    height: 39px; */
+    width: auto;
+    /* height: 39px; */
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: auto calc(100% - 19px);
     background-position-y: 19px;
   }
 
   .bus .bus-sign {
     font-size:11px;
     border-radius: 2px;
-    background-color: #002df8;
+    background-color: rgba(0, 38, 255, 0.7);
     color: white;
     padding: 1px;
     margin-bottom: 5px;
+    text-align: center;
+    word-break: break-word;
+    position: relative;
+    border: 1px solid #002df8;
+
   }
 
   .bus-sign:before {
     content: '';
-    position: relative;
-    top: 17px;
+    position: absolute;
+    top: calc(100% + 1px);
     left: 15px;
     margin-left: -8px;
     width: 0; height: 0;
@@ -94,7 +101,7 @@ body {
 
   .city {
     position: absolute;
-    transition: all 1s ease-out;
+    background-image: url('images/city-svgrepo-com.svg');
   }
 
   .city .city-img {
@@ -113,32 +120,40 @@ body {
   }
 
 
-.wheel {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border: 4px solid black;
-  border-radius: 50%;
-  bottom:-10px;
-  left:0;
-}
 
-.wheel:nth-child(n+5) {
-  margin-left: 35px;
-}
 
-.passengerModal {
+
+.panel {
   box-sizing: border-box;
   width: 200px;
-  overflow: hidden;
-  height: 0px;
   position: absolute;
-  border-radius: 5px;
   padding: 0px;
-  background-color: rgb(94, 175, 105);
+  background-color: rgba(43, 31, 17, .9);
   display: block;
-  transition: all 1.5s ease-out;
-  color: white;
+  box-sizing: border-box;
+  padding: 5px 2px;
   font-size: 12px;
+  left: calc(100vh / 2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel p {
+  margin:0; padding:0;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+}
+
+#timeleft {
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+  margin-top: 2px;
+  padding: 5px;
+  color: rgb(11, 227, 255);
+  background-color: rgb(43, 26, 3);
+  text-shadow: 0px 0px 2px rgb(0, 41, 223);
+  /* border: 1px solid rgb(248, 161, 0); */
 }
