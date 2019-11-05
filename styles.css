@@ -119,13 +119,20 @@ body {
     padding:2px;
   }
 
+.header {
+  position: absolute;
+  width: 100vw;
+  height: 150px;
+  background-image:url();
+  background-repeat: repeat-x;
+ }
 
 
 
-
-.panel {
+.timerPanel {
   box-sizing: border-box;
   width: 200px;
+  height: 50px;
   position: absolute;
   padding: 0px;
   background-color: rgba(43, 31, 17, .9);
@@ -134,13 +141,14 @@ body {
   padding: 5px 2px;
   font-size: 12px;
   left: calc(100vh / 2);
+  top: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.panel p {
+.timerPanel p {
   margin:0; padding:0;
   color: #ffffff;
   font-family: 'Press Start 2P', cursive;

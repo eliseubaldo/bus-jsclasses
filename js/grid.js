@@ -1,6 +1,6 @@
 import { pickRndTile, updatedGridCity, getUnpickedCity, getRndDestination} from './utils.js';
 import Bus from './bus.js';
-import { addTiletoView, adjustViewWorldBoundaries, getElement, addHeaderPanel } from './view-anim-utils.js';
+import { addTiletoView, adjustViewWorldBoundaries, getElement, adjustTimerPanel } from './view-anim-utils.js';
 import Passenger from './passenger.js';
 import { fetchRandomPassenger, fetchRandomCityName } from './dataService.js';
 import City from './city.js';
@@ -8,18 +8,17 @@ import City from './city.js';
 class Grid {
     constructor(element, tilesize, vehicles, passengers, cities) {
         this.element = element;
-        const header = getElement('panel');
+        const headerHeight = 150;
         this.docWidth = this.element.clientWidth;
         this.docHeight = this.element.clientHeight;
         this.tileSize = tilesize;
-        const headerWidth = 200;
-        const headerHeight = 50;
-        addHeaderPanel(header, this.docWidth, headerWidth, headerHeight);
+        const timerPanelWidth = 200;
+        const timerPanel = getElement('timerPanel');
+        adjustTimerPanel(timerPanel, this.docWidth, timerPanelWidth);
         this.gridBase = this.calculateGrid(this.docWidth, this.docHeight, this.tileSize, headerHeight);
         this.tilesGrid = this.generateGrid(this.gridBase.rows, this.gridBase.cols, this.element);
         const width = this.gridBase.cols*this.tileSize;
         const height = this.gridBase.rows*this.tileSize;
-
         adjustViewWorldBoundaries(element, width, height, this.docWidth, this.docHeight, headerHeight);
         this.cities = [];
         this.initiate(vehicles, passengers, cities);

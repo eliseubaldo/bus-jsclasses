@@ -7,7 +7,7 @@ class City {
         this.x = tile.center.x;
         this.y = tile.center.y;
         this.isPicked = isPicked;
-        drawCity(this, tile);
+        drawCity(this, tile, city.picture);
     }
 }
 

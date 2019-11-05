@@ -1,4 +1,4 @@
-import * as viewAnimUtils from './view-anim-utils.js';
+import { drawVehicle } from './view-anim-utils.js';
 
 class Vehicle {
     constructor(name, x = 20, y = 20, maxspeed = 200, wheels = 4, passengers = [] ) {
@@ -10,19 +10,10 @@ class Vehicle {
       this.passengers = passengers;
     }
 
-    createWheels() {
-      viewAnimUtils.createWheels(this.name, this.wheels);
-    }
-
     drawVehicle(vehicle, type, tile) {
-      viewAnimUtils.drawVehicle(vehicle, type, tile)
-    }
-  
-    move(name, x, y) { //move and load, unload passenger
-      viewAnimUtils.move(name,x,y, this)
+      drawVehicle(vehicle, type, tile)
     }
 
-    
   }
   
   export default Vehicle

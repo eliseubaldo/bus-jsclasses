@@ -29,242 +29,302 @@ export function fetchRandomCityName() {
 let cities = [
 	{
 		name: "Shanghai",
-		country: "China"
+		country: "China",
+		picture: ''
 	},
 	{
 		name: "Beijing",
-		country: "China"
+		country: "China",
+		picture: ''
 	},
 	{
 		name: "Istanbul",
-		country: "Turkey"
+		country: "Turkey",
+		picture: ''
 	},
 	{
 		name: "Karachi",
-		country: "Pakistan"
+		country: "Pakistan",
+		picture: ''
 	},
 	{
 		name: "Dhaka",
-		country: "Bangladesh"
+		country: "Bangladesh",
+		picture: ''
 	},
 	{
 		name: "Tokyo",
-		country: "Japan"
+		country: "Japan",
+		picture: ''
 	},
 	{
 		name: "Moscow",
-		country: "Russia"
+		country: "Russia",
+		picture: ''
 	},
 	{
 		name: "Mumbai",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Sao Paulo",
-		country: "Brazil"
+		country: "Brazil",
+		picture: ''
 	},
 	{
 		name: "Kinshasa",
-		country: "Congo"
+		country: "Congo",
+		picture: ''
 	},
 	{
 		name: "Delhi",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Jakarta",
-		country: "Indonesia"
+		country: "Indonesia",
+		picture: ''
 	},
 	{
 		name: "Seoul",
-		country: "South Korea"
+		country: "South Korea",
+		picture: ''
 	},
 	{
 		name: "Lima",
-		country: "Peru"
+		country: "Peru",
+		picture: ''
 	},
 	{
 		name: "Mexico City",
-		country: "Mexico"
+		country: "Mexico",
+		picture: ''
 	},
 	{
 		name: "London",
-		country: "United Kingdom"
+		country: "United Kingdom",
+		picture: ''
 	},
 	{
 		name: "Bangalore",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "New York",
-		country: "United States"
+		country: "United States",
+		picture: ''
 	},
 	{
 		name: "Bogota",
-		country: "Colombia"
+		country: "Colombia",
+		picture: ''
 	},
 	{
 		name: "Cairo",
-		country: "Egypt"
+		country: "Egypt",
+		picture: ''
 	},
 	{
 		name: "Ho Chi Minh City",
-		country: "Vietnam"
+		country: "Vietnam",
+		picture: ''
 	},
 	{
 		name: "Hong Kong",
-		country: "China"
+		country: "China",
+		picture: ''
 	},
 	{
 		name: "Nanjing",
-		country: "China"
+		country: "China",
+		picture: ''
 	},
 	{
 		name: "Hanoi",
-		country: "Vietnam"
+		country: "Vietnam",
+		picture: ''
 	},
 	{
 		name: "Hyderabad",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Baghdad",
-		country: "Iraq"
+		country: "Iraq",
+		picture: ''
 	},
 	{
 		name: "Chennai",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Riyadh",
-		country: "Saudi Arabia"
+		country: "Saudi Arabia",
+		picture: ''
 	},
 	{
 		name: "Rio de Janeiro",
-		country: "Brazil"
+		country: "Brazil",
+		picture: ''
 	},
 	{
 		name: "Bangkok",
-		country: "Thailand"
+		country: "Thailand",
+		picture: ''
 	},
 	{
 		name: "Singapore",
-		country: "Singapore"
+		country: "Singapore",
+		picture: ''
 	},
 	{
 		name: "Santiago",
-		country: "Chile"
+		country: "Chile",
+		picture: ''
 	},
 	{
 		name: "Saint Petersburg",
-		country: "Russia"
+		country: "Russia",
+		picture: ''
 	},
 	{
 		name: "Yangon",
-		country: "Myanmar"
+		country: "Myanmar",
+		picture: ''
 	},
 	{
 		name: "Johannesburg",
-		country: "South Africa"
+		country: "South Africa",
+		picture: ''
 	},
 	{
 		name: "Abidjan",
-		country: "Ivory Coast"
+		country: "Ivory Coast",
+		picture: ''
 	},
 	{
 		name: "Alexandria",
-		country: "Egypt"
+		country: "Egypt",
+		picture: ''
 	},
 	{
 		name: "Ankara",
-		country: "Turkey"
+		country: "Turkey",
+		picture: ''
 	},
 	{
 		name: "Giza",
-		country: "Egypt"
+		country: "Egypt",
+		picture: ''
 	},
 	{
 		name: "Los Angeles",
-		country: "United States"
+		country: "United States",
+		picture: ''
 	},
 	{
 		name: "New Taipei City",
-		country: "Taiwan"
+		country: "Taiwan",
+		picture: ''
 	},
 	{
 		name: "Cape Town",
-		country: "South Africa"
+		country: "South Africa",
+		picture: ''
 	},
 	{
 		name: "Yokohama",
-		country: "Japan"
+		country: "Japan",
+		picture: ''
 	},
 	{
 		name: "Berlin",
-		country: "Germany"
+		country: "Germany",
+		picture: ''
 	},
 	{
 		name: "Busan",
-		country: "South Korea"
+		country: "South Korea",
+		picture: ''
 	},
 	{
 		name: "Jeddah",
-		country: "Saudi Arabia"
+		country: "Saudi Arabia",
+		picture: ''
 	},
 	{
 		name: "Durban",
-		country: "South Africa"
+		country: "South Africa",
+		picture: ''
 	},
 	{
 		name: "Kabul",
-		country: "Afghanistan"
+		country: "Afghanistan",
+		picture: ''
 	},
 	{
 		name: "Pyongyang",
-		country: "North Korea"
+		country: "North Korea",
+		picture: ''
 	},
 	{
 		name: "Madrid",
-		country: "Spain"
+		country: "Spain",
+		picture: ''
 	},
 	{
 		name: "Porto",
-		country: "Portugal"
+		country: "Portugal",
+		picture: ''
 	},
 	{
 		name: "Ekurhuleni",
-		country: "South Africa"
+		country: "South Africa",
+		picture: ''
 	},
 	{
 		name: "Nairobi",
-		country: "Kenya"
+		country: "Kenya",
+		picture: ''
 	},
 	{
 		name: "Lisbon",
-		country: "Portugal"
+		country: "Portugal",
+		picture: ''
 	},
 	{
 		name: "Pune",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Addis Ababa",
-		country: "Ethiopia"
+		country: "Ethiopia",
+		picture: ''
 	},
 	{
 		name: "Jaipur",
-		country: "India"
+		country: "India",
+		picture: ''
 	},
 	{
 		name: "Buenos Aires",
-		country: "Argentina"
+		country: "Argentina",
+		picture: ''
 	},
 	{
 		name: "San Tiago",
-		country: "Spain"
+		country: "Spain",
+		picture: ''
 	},
 	{
 		name: "Adelaide",
-		country: "Australia"
+		country: "Australia",
+		picture: ''
 	}
 ];

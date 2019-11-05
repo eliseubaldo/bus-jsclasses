@@ -88,13 +88,14 @@ function drawBus(vehicle, tile) {
   getElement(vehicle.name).style.height = tile.height /2 +'px';
 }
 
-export function drawCity(city, tile) {
+export function drawCity(city, tile, picture = 'images/city-svgrepo-com.svg') {
   let world = getElement(tile.id);
   world.innerHTML += `<div class='city' id='${city.name}'><div class='city-sign' data-tile='${tile.id}'>${city.name}</div></div>`;
   getElement(city.name).style.width = tile.width /2 +'px';
   getElement(city.name).style.height = tile.height /2 +'px';
   getElement(city.name).style.top = tile.height /2 +'px';
   getElement(city.name).style.left = tile.width - tile.size +'px';
+  getElement(city.name).style.backgroundImage = picture;
 }
 
 export function drawPassenger(passenger, tile, destination) {
@@ -134,7 +135,6 @@ export function adjustViewWorldBoundaries(element, width, height, docWidth, docH
   
 }
 
-export function addHeaderPanel(element, docWidth, elementWidth, elementHeight) {
+export function adjustTimerPanel(element, docWidth, elementWidth) {
   element.style.left = docWidth/2 - elementWidth/2 + "px";
-  element.style.height = elementHeight + "px";
 }
