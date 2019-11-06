@@ -30,301 +30,291 @@ let cities = [
 	{
 		name: "Shanghai",
 		country: "China",
-		picture: ''
+		picture: 'shanghai.svg'
 	},
 	{
 		name: "Beijing",
 		country: "China",
-		picture: ''
+		picture: 'beijing.svg'
 	},
 	{
 		name: "Istanbul",
 		country: "Turkey",
-		picture: ''
+		picture: 'istambul.svg'
 	},
 	{
-		name: "Karachi",
-		country: "Pakistan",
-		picture: ''
+		name: "Athens",
+		country: "Greece",
+		picture: 'athens.svg'
 	},
 	{
-		name: "Dhaka",
-		country: "Bangladesh",
-		picture: ''
+		name: "Budapest",
+		country: "Hungary",
+		picture: 'budapest.svg'
 	},
 	{
 		name: "Tokyo",
 		country: "Japan",
-		picture: ''
+		picture: 'tokyo.svg'
 	},
 	{
 		name: "Moscow",
 		country: "Russia",
-		picture: ''
+		picture: 'moscow.svg'
 	},
 	{
 		name: "Mumbai",
 		country: "India",
-		picture: ''
+		picture: 'mumbai.svg'
 	},
 	{
 		name: "Sao Paulo",
 		country: "Brazil",
-		picture: ''
+		picture: 'saopaulo.svg'
 	},
 	{
 		name: "Kinshasa",
 		country: "Congo",
-		picture: ''
+		picture: undefined
 	},
 	{
-		name: "Delhi",
-		country: "India",
-		picture: ''
+		name: "Rome",
+		country: "Italy",
+		picture: 'rome.svg'
 	},
 	{
 		name: "Jakarta",
 		country: "Indonesia",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Seoul",
 		country: "South Korea",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Lima",
 		country: "Peru",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Mexico City",
 		country: "Mexico",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "London",
 		country: "United Kingdom",
-		picture: ''
+		picture: 'london.svg'
 	},
 	{
 		name: "Bangalore",
 		country: "India",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "New York",
 		country: "United States",
-		picture: ''
+		picture: 'newyork.svg'
 	},
 	{
 		name: "Bogota",
 		country: "Colombia",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Cairo",
 		country: "Egypt",
-		picture: ''
+		picture: 'cairo.svg'
 	},
 	{
 		name: "Ho Chi Minh City",
 		country: "Vietnam",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Hong Kong",
 		country: "China",
-		picture: ''
+		picture: undefined
 	},
 	{
-		name: "Nanjing",
-		country: "China",
-		picture: ''
+		name: "Wiltshire",
+		country: "England",
+		picture: 'wiltshire.svg'
 	},
 	{
 		name: "Hanoi",
 		country: "Vietnam",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Hyderabad",
 		country: "India",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Baghdad",
 		country: "Iraq",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Chennai",
 		country: "India",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Riyadh",
 		country: "Saudi Arabia",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Rio de Janeiro",
 		country: "Brazil",
-		picture: ''
+		picture: 'rio.svg'
 	},
 	{
 		name: "Bangkok",
 		country: "Thailand",
-		picture: ''
+		picture: 'bangkok.svg'
 	},
 	{
 		name: "Singapore",
 		country: "Singapore",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Santiago",
 		country: "Chile",
-		picture: ''
+		picture: 'santiago.svg'
 	},
 	{
 		name: "Saint Petersburg",
 		country: "Russia",
-		picture: ''
+		picture: 'stpetesburg.svg'
 	},
 	{
 		name: "Yangon",
 		country: "Myanmar",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Johannesburg",
 		country: "South Africa",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Abidjan",
 		country: "Ivory Coast",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Alexandria",
 		country: "Egypt",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Ankara",
 		country: "Turkey",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Giza",
 		country: "Egypt",
-		picture: ''
+		picture: 'abusimbel.svg'
 	},
 	{
 		name: "Los Angeles",
 		country: "United States",
-		picture: ''
+		picture: 'losangeles.svg'
 	},
 	{
 		name: "New Taipei City",
 		country: "Taiwan",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Cape Town",
 		country: "South Africa",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Yokohama",
 		country: "Japan",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Berlin",
 		country: "Germany",
-		picture: ''
+		picture: undefined
 	},
 	{
-		name: "Busan",
-		country: "South Korea",
-		picture: ''
+		name: "Paris",
+		country: "France",
+		picture: 'paris.svg'
 	},
 	{
-		name: "Jeddah",
-		country: "Saudi Arabia",
-		picture: ''
+		name: "Pisa",
+		country: "italy",
+		picture: 'pisa.svg'
 	},
 	{
 		name: "Durban",
 		country: "South Africa",
-		picture: ''
+		picture: undefined
 	},
 	{
-		name: "Kabul",
-		country: "Afghanistan",
-		picture: ''
-	},
-	{
-		name: "Pyongyang",
-		country: "North Korea",
-		picture: ''
+		name: "Abu Simbel",
+		country: "Egypt",
+		picture: 'abusimbel.svg'
 	},
 	{
 		name: "Madrid",
 		country: "Spain",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Porto",
 		country: "Portugal",
-		picture: ''
-	},
-	{
-		name: "Ekurhuleni",
-		country: "South Africa",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Nairobi",
 		country: "Kenya",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Lisbon",
 		country: "Portugal",
-		picture: ''
+		picture: undefined
 	},
 	{
-		name: "Pune",
+		name: "Agra",
 		country: "India",
-		picture: ''
+		picture: 'agra.svg'
 	},
 	{
 		name: "Addis Ababa",
 		country: "Ethiopia",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Jaipur",
 		country: "India",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Buenos Aires",
 		country: "Argentina",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "San Tiago",
 		country: "Spain",
-		picture: ''
+		picture: undefined
 	},
 	{
 		name: "Adelaide",
 		country: "Australia",
-		picture: ''
+		picture: undefined
 	}
 ];

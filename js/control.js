@@ -16,7 +16,7 @@ class Control {
         this.successfullPassengers = 0;
         this.grid = new Grid(worldclass, 120, nVehicles, this.nPassengers, nCities);
         this.attachListeners(this);
-        const givenSeconds = (this.nPassengers * 3) + (7); // 3=anim time, 5=extra
+        const givenSeconds = (this.nPassengers * 3) + (10); // 3=anim time, 10=extra
         this.countdown(givenSeconds);
     }
 

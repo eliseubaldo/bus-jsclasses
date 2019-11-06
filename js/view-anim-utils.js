@@ -1,12 +1,11 @@
-import { randonNumber, getElementRowCol } from './utils.js';
 
 export function moveVehicle(vehicle, gridTargetTile, pastTile) {
   
   vehicle.setAttribute('data-row',gridTargetTile.row);
   vehicle.setAttribute('data-col',gridTargetTile.col);
   console.log('dpois:',vehicle)
-  setTimeout( () => { vehicle.style.left = gridTargetTile.center.x + "px" }, 1000);
-  setTimeout( () => { vehicle.style.top = gridTargetTile.center.y + "px" }, 2000);
+  setTimeout( () => { vehicle.style.left = gridTargetTile.center.x + "px" }, 300);
+  setTimeout( () => { vehicle.style.top = gridTargetTile.center.y + "px" }, 1300);
   return new Promise((r,j) => { 
     setTimeout( () => {
         r(pastTile);
@@ -88,14 +87,15 @@ function drawBus(vehicle, tile) {
   getElement(vehicle.name).style.height = tile.height /2 +'px';
 }
 
-export function drawCity(city, tile, picture = 'images/city-svgrepo-com.svg') {
+export function drawCity(city, tile, picture = 'city-svgrepo-com.svg') {
   let world = getElement(tile.id);
+  const dirpath = 'images/'
   world.innerHTML += `<div class='city' id='${city.name}'><div class='city-sign' data-tile='${tile.id}'>${city.name}</div></div>`;
-  getElement(city.name).style.width = tile.width /2 +'px';
-  getElement(city.name).style.height = tile.height /2 +'px';
-  getElement(city.name).style.top = tile.height /2 +'px';
+  getElement(city.name).style.width = tile.width +'px';
+  getElement(city.name).style.height = tile.height +'px';
+  getElement(city.name).style.top = 0 +'px';
   getElement(city.name).style.left = tile.width - tile.size +'px';
-  getElement(city.name).style.backgroundImage = picture;
+  getElement(city.name).style.backgroundImage = `url('${dirpath+picture}')`;
 }
 
 export function drawPassenger(passenger, tile, destination) {

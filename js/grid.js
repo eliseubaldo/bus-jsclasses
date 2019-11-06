@@ -8,7 +8,7 @@ import City from './city.js';
 class Grid {
     constructor(element, tilesize, vehicles, passengers, cities) {
         this.element = element;
-        const headerHeight = 150;
+        const headerHeight = 132;
         this.docWidth = this.element.clientWidth;
         this.docHeight = this.element.clientHeight;
         this.tileSize = tilesize;

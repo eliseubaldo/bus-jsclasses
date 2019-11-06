@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0; margin: 0;
-  background: green;
+  background: rgb(100, 173, 66);
 }
 
 #world {
@@ -101,7 +101,8 @@ body {
 
   .city {
     position: absolute;
-    background-image: url('images/city-svgrepo-com.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
   }
 
   .city .city-img {
@@ -111,10 +112,10 @@ body {
   .city .city-sign {
     font-size: 11px;
     position: absolute;
-    color: white;
+    color: black;
     bottom:2px;
     left:2px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(253, 249, 0);
     border-radius: 3px;
     padding:2px;
   }
@@ -123,7 +124,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 150px;
-  background-image:url();
+  background-image:url('images/top-bg.svg');
   background-repeat: repeat-x;
  }
 
