@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lost Passengers</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
 </head>
-<body>
-    <header class="header" id="header"></header> 
+<body class="home">
+    <div class="wrapper">
+        <div class="titleWrapper">
+            <h1 class="animated lightSpeedIn ">Anxious Passengers</h1>
+            <div class="logo"></div>
+        </div>
     
-    <div id="world">
-    </div>
+        <div class="infoPanel animated fadeIn delay-1s">
+            <p>Use the buses to pick-up passengers according to their destination, then drive the bus to it's destination city</p>
+            
+            <img src="images/info-bus.jpg" alt="">
+            <p>Tip: you can drive multiple buses at a time</p>
+        </div>
     
-    <div class="timerPanel" id="timerPanel">
-        <p>Time to transport all passengers</p>
-        <div id="timeleft"></div>
+        <div class="flexWrapper">
+            <a href="start.html" class="startbt animated flipInX delay-3s">Start</a>
+        </div>
+
     </div>
+
     
 </body>
-<script type="module" src="js/index.js"></script>
+
 </html>

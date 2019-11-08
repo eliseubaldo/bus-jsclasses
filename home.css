@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+.home {
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(6,110,187,1) 0%, rgba(0,159,255,1) 94%, rgba(162,114,0,1) 94%, rgba(0,177,72,1) 97%, rgba(0,181,27,1) 100%);
+    background-repeat: no-repeat;
+    margin: 0; padding: 0;;
+}
+
+.wrapper {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 4rem;
+    color: rgb(255, 208, 0);
+    text-align: center;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    margin: 0; padding: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.titleWrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    background-image: url(images/late-passenger-flat-icon-vector-6338291.png);
+    background-position: center ;
+    background-repeat: repeat-x;
+    background-size: contain;
+    min-height: 21vh;
+}
+
+.infoPanel {
+    border: 2px solid rgb(0, 53, 228);
+    background-color: rgb(0, 65, 187);
+    padding: 10px;
+    width: 90%;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.infoPanel img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.startbt {
+    font-family: 'Press Start 2P', cursive;
+    padding:15px;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    border: 0;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.flexWrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+

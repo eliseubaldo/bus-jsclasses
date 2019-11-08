@@ -1,10 +1,9 @@
 import Grid from './grid.js';
-import { getElement, moveVehicle, removePassenger } from './view-anim-utils.js'
+import { getElement, moveVehicle, removePassenger, showWellDoneModal, showGameOverModal, updateTimerPanel} from './view-anim-utils.js'
 import {getElementRowCol} from './utils.js';
 
 class Control {
     constructor(){
-        this.selectedBus = {};
         this.initiate();
     }
 
@@ -13,11 +12,20 @@ class Control {
         const nVehicles = 3;
         this.nPassengers = 6;
         const nCities = 8;
+        this.selectedBus = {};
         this.successfullPassengers = 0;
+        this.gameOver = false;
         this.grid = new Grid(worldclass, 120, nVehicles, this.nPassengers, nCities);
         this.attachListeners(this);
-        const givenSeconds = (this.nPassengers * 3) + (10); // 3=anim time, 10=extra
+        const givenSeconds = (this.nPassengers * 3) + (15); // 3=anim time, 10=extra
         this.countdown(givenSeconds);
+    }
+
+    restart() {
+        const worldclass = getElement('world');
+        worldclass.innerHTML = "";
+        worldclass.style = "";
+        this.initiate();
     }
 
     attachListeners(control) {
@@ -49,6 +57,11 @@ class Control {
             if (event.target.matches('.passenger')) {
                 const tileElement = getElement(event.target.getAttribute('data-tile'));
                 control.checkMove(tileElement);
+            }
+
+            if (event.target.matches('.tryAgainBt')) {
+                //control.restart();
+                window.location.reload();
             }
 
         }, false);
@@ -115,15 +128,18 @@ class Control {
 
         console.log('atual grid:', this.grid.tilesGrid);
         
-        // Check terminou = this.successfullPassengers === this.nPassengers;
+         if (this.successfullPassengers === this.nPassengers && this.gameOver === false) {
+            clearInterval(this.countdown);
+            showWellDoneModal();
+         }
       
     }
 
     countdown(seconds) {
         let countDownDate = new Date().getTime() + 1000 * seconds;
-        
+        let control = this;
         // Update the count down every 500 ms
-        let x = setInterval(function() {
+        this.countdown = setInterval(function() {
 
             // Get today's date and time
             let now = new Date().getTime();
@@ -132,14 +148,16 @@ class Control {
             let distance = countDownDate - now;
 
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("timeleft").innerHTML = + seconds;
+            updateTimerPanel('countdown', seconds);
 
             // If the count down is finished, write some text
             if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timeleft").innerHTML = "EXPIRED";
+                clearInterval(control.countdown);
+                updateTimerPanel('gameover');
+                showGameOverModal();
+                control.gameOver = true;
             }
-        }, 500);
+        }, 500, control);
     }
     
 

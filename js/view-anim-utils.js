@@ -58,7 +58,7 @@ export function addTiletoView(element, size, row, col) {
             left:${size*col+'px'};
             top:${size*row+'px'}'
             data-row='${row}' data-col='${col}'>
-    ${row}/${col}
+    
     </div>`;
 } 
 
@@ -100,7 +100,7 @@ export function drawCity(city, tile, picture = 'city-svgrepo-com.svg') {
 
 export function drawPassenger(passenger, tile, destination) {
   let world = getElement('world');
-  world.innerHTML += `<div class='passenger' id='${passenger.name}' data-tile='${tile.id}'>
+  world.innerHTML += `<div class='passenger zoomIn animated' id='${passenger.name}' data-tile='${tile.id}'>
   <img src='../images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
   <div class='passenger-destination' data-tile='${tile.id}'>${destination.name}</div>
   </div>`;
@@ -126,15 +126,44 @@ export function removePassenger(id) {
 
 }
 
+export function showWellDoneModal() {
+  let world = getElement('world');
+  world.innerHTML += `<div class="resultModal animated fadeIn delay-1s">
+  <p class="animated pulse infinite">Well Done!</p>
+  <img src="images/welldone.gif" />
+  </div>`;
+}
+
+export function showGameOverModal() {
+  let world = getElement('world');
+  world.innerHTML += `<div class="resultModal animated fadeIn delay-1s">
+  <p class="animated pulse infinite">You lost!</p>
+  <button class="tryAgainBt">try again</button>
+  </div>`;
+}
+
 export function adjustViewWorldBoundaries(element, width, height, docWidth, docHeight, headerHeight) {
   element.style.width = width + 'px';
   element.style.height = height  + 'px';
   element.style.left = (docWidth - width) / 2 + "px";
   element.style.top = headerHeight + "px";
-  
-  
 }
 
 export function adjustTimerPanel(element, docWidth, elementWidth) {
   element.style.left = docWidth/2 - elementWidth/2 + "px";
+}
+
+export function updateTimerPanel(situation, content) {
+  switch(situation){
+    case 'countdown':
+        document.getElementById("timeleft").innerHTML = + content;
+    break;
+    case 'gameover':
+        document.getElementById("timeleft").innerHTML = "EXPIRED";
+        document.getElementById("timeleft").className = "flash animated infinite";
+        document.getElementById("timeleft").style.color = "red";
+    break;
+    default:;
+  }
+
 }
