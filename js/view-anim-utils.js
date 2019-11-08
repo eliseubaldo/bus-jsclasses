@@ -101,7 +101,7 @@ export function drawCity(city, tile, picture = 'city-svgrepo-com.svg') {
 export function drawPassenger(passenger, tile, destination) {
   let world = getElement('world');
   world.innerHTML += `<div class='passenger zoomIn animated' id='${passenger.name}' data-tile='${tile.id}'>
-  <img src='../images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
+  <img src='images/Aiga_toiletsq_men.svg' class='passenger-icon' name='${passenger.name}'>
   <div class='passenger-destination' data-tile='${tile.id}'>${destination.name}</div>
   </div>`;
   let passengerEl = getElement(passenger.name);
